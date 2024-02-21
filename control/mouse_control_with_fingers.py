@@ -1,8 +1,6 @@
 import cv2
 import mediapipe as mp
 import time
-from comtypes import CLSCTX_ALL
-from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
 import mouse
 import math
 
@@ -14,10 +12,7 @@ mpHands = mp.solutions.hands
 hands = mpHands.Hands()
 mpDraw = mp.solutions.drawing_utils
 
-# Initialize audio devices for volume control
-devices = AudioUtilities.GetSpeakers()
-interface = devices.Activate(IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
-volume = interface.QueryInterface(IAudioEndpointVolume)
+
 
 # Initialize previous and current time for frame rate calculation
 pTime = 0
